@@ -1,5 +1,12 @@
 # pl3_gmx_mmpbsa
-for deploying on binder on top of gmx_mmpbsa
+for deploying on binder on top of gmx_mmpbsa 
+
+An example of the final result of such a calculation (per-residue decomposition of binding free energy)
+
+![image](https://user-images.githubusercontent.com/75652473/227806027-582f8193-be45-46d0-9483-eb8bb01a3b7a.png)
+
+
+![image](https://user-images.githubusercontent.com/75652473/227806111-64392237-340c-46e8-a872-9af281707ea4.png)
 
 [![Use on Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/quantaosun/pl3_gmx_mmpbsa/HEAD)
 
