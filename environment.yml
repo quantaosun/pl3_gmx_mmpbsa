@@ -1,4 +1,4 @@
-name: gmxMMPBSA2
+name: 
 channels:
   - conda-forge
   - defaults
