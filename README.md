@@ -1,5 +1,5 @@
 # pl3_gmx_mmpbsa
-for deploying on binder on top of gmx_mmpbsa 
+Local Unix use or binder use
 
 An example of the final result of such a calculation (per-residue decomposition of binding free energy)
 
