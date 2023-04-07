@@ -56,3 +56,8 @@ idecomp=2, dec_verbose=3,
 print_res="within 4"
 /
 ```
+To determine how many frames in your trajectory file, use pymol 
+```
+load step5_1.gro
+load step5_1.xtc
+```
