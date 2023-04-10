@@ -15,8 +15,9 @@ Recommened workflow.
 3. MD simulation with local gromacs or gmx inside this pl3_gmx_mmpbsa binder environment
 ```
 modify REAMD for loop to only run the first 2, with step5.production.mdp nsteps extended 10 times of original value
-
+```
 An example on normal local Linux without GPU could be 
+
 ```
 #!/bin/csh
 
