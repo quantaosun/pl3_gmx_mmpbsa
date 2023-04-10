@@ -108,9 +108,6 @@ load step5_1.xtc
 ```
 # In case the small molecules contains F Cl Br, it is necessary to delete the virtual site not supported by gmx_MMPBSA. 
 
-```
-gmx_MMPBSA -O -i mmpbsa.in -cs step5_1.tpr -ci index2.ndx -cg 1 17 -ct step5_1.xtc -cp topol.top -o FINAL_RESULTS.dat -eo FINAL_RESULTS.cs
-```
 See details from https://valdes-tresanco-ms.github.io/gmx_MMPBSA/dev/examples/Protein_ligand_LPH_atoms_CHARMMff/, note the modification of topol.top is extremely easy to go wrong, be careful.
 
 1. Similar to above, generate a new index file
@@ -163,6 +160,161 @@ Analysing residues not classified as Protein/DNA/RNA/Water and splitting into gr
 
 > splitat 13
 ```
+
+```
+  0 System              : 102688 atoms
+  1 Protein             :  5924 atoms
+  2 Protein-H           :  2952 atoms
+  3 C-alpha             :   361 atoms
+  4 Backbone            :  1083 atoms
+  5 MainChain           :  1443 atoms
+  6 MainChain+Cb        :  1781 atoms
+  7 MainChain+H         :  1788 atoms
+  8 SideChain           :  4136 atoms
+  9 SideChain-H         :  1509 atoms
+ 10 Prot-Masses         :  5924 atoms
+ 11 non-Protein         : 96764 atoms
+ 12 Other               : 96764 atoms
+ 13 UNL                 :    36 atoms
+ 14 POT                 :    91 atoms
+ 15 CLA                 :   100 atoms
+ 16 TIP3                : 96537 atoms
+ 17 UNL_O_5925          :     1 atoms
+ ...................................
+ 46 UNL_H8_5954         :     1 atoms
+ 47 UNL_H9_5955         :     1 atoms
+ 48 UNL_H10_5956        :     1 atoms
+ 49 UNL_H11_5957        :     1 atoms
+ 50 UNL_H12_5958        :     1 atoms
+ 51 UNL_H13_5959        :     1 atoms
+ 52 UNL_LP1_5960        :     1 atoms
+
+ nr : group      '!': not  'name' nr name   'splitch' nr    Enter: list groups
+ 'a': atom       '&': and  'del' nr         'splitres' nr   'l': list residues
+ 't': atom type  '|': or   'keep' nr        'splitat' nr    'h': help
+ 'r': residue              'res' nr         'chain' char
+ "name": group             'case': case sensitive           'q': save and quit
+ 'ri': residue index
+ 
+ > 13&!52
+
+Copied index group 13 'UNL'
+Copied index group 52 'UNL_LP1_5960'
+Complemented group: 102687 atoms
+Merged two groups with AND: 36 102687 -> 35
+
+ 53 UNL_&_!UNL_LP1_5960 :    35 atoms
+```
+
+```
+> name 53 lig
+0 System              : 102688 atoms
+  1 Protein             :  5924 atoms
+  2 Protein-H           :  2952 atoms
+  3 C-alpha             :   361 atoms
+  4 Backbone            :  1083 atoms
+  5 MainChain           :  1443 atoms
+  6 MainChain+Cb        :  1781 atoms
+  7 MainChain+H         :  1788 atoms
+  8 SideChain           :  4136 atoms
+  9 SideChain-H         :  1509 atoms
+ 10 Prot-Masses         :  5924 atoms
+ 11 non-Protein         : 96764 atoms
+ 12 Other               : 96764 atoms
+ 13 UNL                 :    36 atoms
+ 14 POT                 :    91 atoms
+ 15 CLA                 :   100 atoms
+ 16 TIP3                : 96537 atoms
+ 17 UNL_O_5925          :     1 atoms
+ 18 UNL_C1_5926         :     1 atoms
+ ....................................
+ 50 UNL_H12_5958        :     1 atoms
+ 51 UNL_H13_5959        :     1 atoms
+ 52 UNL_LP1_5960        :     1 atoms
+ 53 lig                 :    35 atoms
+ 
+ > 1|53
+
+Copied index group 1 'Protein'
+Copied index group 53 'lig'
+Merged two groups with OR: 5924 35 -> 5959
+
+ 54 Protein_lig         :  5959 atoms
+
+```
+
+```
+
+  0 System              : 102688 atoms
+  1 Protein             :  5924 atoms
+  2 Protein-H           :  2952 atoms
+  3 C-alpha             :   361 atoms
+  4 Backbone            :  1083 atoms
+  5 MainChain           :  1443 atoms
+  6 MainChain+Cb        :  1781 atoms
+  7 MainChain+H         :  1788 atoms
+  8 SideChain           :  4136 atoms
+  9 SideChain-H         :  1509 atoms
+ 10 Prot-Masses         :  5924 atoms
+ 11 non-Protein         : 96764 atoms
+ 12 Other               : 96764 atoms
+ 13 UNL                 :    36 atoms
+ 14 POT                 :    91 atoms
+ 15 CLA                 :   100 atoms
+ 16 TIP3                : 96537 atoms
+ 17 UNL_O_5925          :     1 atoms
+ ...................................
+ 50 UNL_H12_5958        :     1 atoms
+ 51 UNL_H13_5959        :     1 atoms
+ 52 UNL_LP1_5960        :     1 atoms
+ 53 lig                 :    35 atoms
+ 54 Protein_lig         :  5959 atoms
+ > del 17-52
+> 
+
+
+  0 System              : 102688 atoms
+  1 Protein             :  5924 atoms
+  2 Protein-H           :  2952 atoms
+  3 C-alpha             :   361 atoms
+  4 Backbone            :  1083 atoms
+  5 MainChain           :  1443 atoms
+  6 MainChain+Cb        :  1781 atoms
+  7 MainChain+H         :  1788 atoms
+  8 SideChain           :  4136 atoms
+  9 SideChain-H         :  1509 atoms
+ 10 Prot-Masses         :  5924 atoms
+ 11 non-Protein         : 96764 atoms
+ 12 Other               : 96764 atoms
+ 13 UNL                 :    36 atoms
+ 14 POT                 :    91 atoms
+ 15 CLA                 :   100 atoms
+ 16 TIP3                : 96537 atoms
+ 17 lig                 :    35 atoms
+ 18 Protein_lig         :  5959 atoms
+
+```
+So we have generated group 17 which is a new version of 13 but without any lone pair halogen atoms, and a protein-ligand complex without LPH, next we also need to generate a pdb file without LPH as the -cs input, and generate a new trajectory file without LPH, at last update the topol file which is refering to /toppar/UNL.itp
+
+PDB file
+
+```
+echo 18 | gmx trjconv -s step5_1.tpr -f step5_1.xtc -dump 0 -o step5_1_noLP.pdb -n index2.ndx
+```
+
+Trajectory file
+
+```
+echo 18 | gmx trjconv -s step5_1.tpr -f step5_1.xtc -dump 0 -o step5_1_noLP.xtc -n index2.ndx
+```
+Next,deleted all the information related with LPH particles (atom numbers 52). Dleted the information for LPH particles in atoms ( atom 52 ) and pairs (4 lines need to be deleted, in other case if there are 2 LPH you need delete 8 lines). Besides, delete the whole [ virtual_sites ]  and [ exclusions ] 
+
+Finally run
+
+```
+gmx_MMPBSA -O -i mmpbsa.in -cs step5_1.tpr -ci index2.ndx -cg 1 17 -ct step5_1.xtc -cp topol.top -o FINAL_RESULTS.dat -eo FINAL_RESULTS.cs
+```
+
 
 # In case you have to use Bash instead of csh 
 ```
