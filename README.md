@@ -65,4 +65,10 @@ load step5_1.gro
 load step5_1.xtc
 ```
 
+In case the small molecule contains F Cl Br atoms, the command should be modified to 
+
+```
+gmx_MMPBSA -O -i mmpbsa.in -cs step5_1.tpr -ci index2.ndx -cg 1 17 -ct step5_1.xtc -cp topol.top -o FINAL_RESULTS.dat -eo FINAL_RESULTS.cs
+```
+See details from https://valdes-tresanco-ms.github.io/gmx_MMPBSA/dev/examples/Protein_ligand_LPH_atoms_CHARMMff/, note the modification of topol.top is extremely easy to go wrong, be careful.
 
