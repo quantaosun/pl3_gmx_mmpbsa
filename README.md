@@ -2,7 +2,8 @@
 Local Unix use or binder use
 
 An example of the final result of such a calculation (per-residue decomposition of binding free energy)
-file:///home/qq/Desktop/3rd_review/20230409/QS2008_brmine_head/charmm-gui-8079023532/gromacs/MMPBSA/Prot-Lig-ST_NORMAL_GB_Delta_TDC.svg![image](https://user-images.githubusercontent.com/75652473/230804988-ecd647c8-a10b-4140-9c63-fde93d2b6045.png)
+
+![image](https://user-images.githubusercontent.com/75652473/230804988-ecd647c8-a10b-4140-9c63-fde93d2b6045.png)
 
 
 [![Use on Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/quantaosun/pl3_gmx_mmpbsa/HEAD)
