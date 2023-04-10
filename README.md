@@ -1,5 +1,6 @@
 # pl3_gmx_mmpbsa
-Local Unix use or binder use
+
+## Halogen-contained small molecule needs special address
 
 An example of the final result of such a calculation (per-residue decomposition of binding free energy)
 
@@ -74,7 +75,6 @@ Elaboration on step 4. To know the index for protein and ligand, run
 gmx make_ndx -f step5_1.gro -o index2.ndx
 
 ```
-# In case the small molecules contains F Cl Br, it is necessary to delete the virtual site not supported by gmx_MMPBSA. 
 
 
 
@@ -106,8 +106,7 @@ To determine how many frames in your trajectory file, use pymol
 load step5_1.gro
 load step5_1.xtc
 ```
-
-In case the small molecule contains F Cl Br atoms, the command should be modified to 
+# In case the small molecules contains F Cl Br, it is necessary to delete the virtual site not supported by gmx_MMPBSA. 
 
 ```
 gmx_MMPBSA -O -i mmpbsa.in -cs step5_1.tpr -ci index2.ndx -cg 1 17 -ct step5_1.xtc -cp topol.top -o FINAL_RESULTS.dat -eo FINAL_RESULTS.cs
