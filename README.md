@@ -16,7 +16,7 @@ Recommened workflow.
 modify REAMD for loop to only run the first 1, with step5.production.mdp nsteps extended 10 times of original value
 
 ```
-mdp file after 10 time logner than default
+mdp file after 10 time logner than default (nsteps has been modified with one more 0)
 
 ```
 integrator              = md
