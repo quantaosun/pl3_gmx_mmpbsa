@@ -113,6 +113,57 @@ gmx_MMPBSA -O -i mmpbsa.in -cs step5_1.tpr -ci index2.ndx -cg 1 17 -ct step5_1.x
 ```
 See details from https://valdes-tresanco-ms.github.io/gmx_MMPBSA/dev/examples/Protein_ligand_LPH_atoms_CHARMMff/, note the modification of topol.top is extremely easy to go wrong, be careful.
 
+1. Similar to above, generate a new index file
+```
+_GMXMMPBSA_COM_index.ndx     _GMXMMPBSA_dummyreceptor.inpcrd   _GMXMMPBSA_LIG.inpcrd            _GMXMMPBSA_REC.pdb                  step5_10.gro                     step5_1.log
+(gmxMMPBSA2) qq@qq-ASUS-TUF-Gaming-A15-FA506QM-FA506QM:~/Desktop/3rd_review/20230409/gromacs/MMPBSA$ gmx make_ndx -f step5_1.tpr -o index2.ndx 
+               :-) GROMACS - gmx make_ndx, 2022.4-conda_forge (-:
+
+Executable:   /home/qq/anaconda3/envs/gmxMMPBSA2/bin.AVX2_256/gmx
+Data prefix:  /home/qq/anaconda3/envs/gmxMMPBSA2
+Working dir:  /home/qq/Desktop/3rd_review/20230409/gromacs/MMPBSA
+Command line:
+  gmx make_ndx -f step5_1.tpr -o index2.ndx
+
+
+Reading structure file
+Reading file step5_1.tpr, VERSION 2022.2 (single precision)
+Reading file step5_1.tpr, VERSION 2022.2 (single precision)
+Going to read 0 old index file(s)
+Analysing residue names:
+There are:   361    Protein residues
+There are: 32371      Other residues
+Analysing Protein...
+Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
+
+  0 System              : 102688 atoms
+  1 Protein             :  5924 atoms
+  2 Protein-H           :  2952 atoms
+  3 C-alpha             :   361 atoms
+  4 Backbone            :  1083 atoms
+  5 MainChain           :  1443 atoms
+  6 MainChain+Cb        :  1781 atoms
+  7 MainChain+H         :  1788 atoms
+  8 SideChain           :  4136 atoms
+  9 SideChain-H         :  1509 atoms
+ 10 Prot-Masses         :  5924 atoms
+ 11 non-Protein         : 96764 atoms
+ 12 Other               : 96764 atoms
+ 13 UNL                 :    36 atoms
+ 14 POT                 :    91 atoms
+ 15 CLA                 :   100 atoms
+ 16 TIP3                : 96537 atoms
+
+ nr : group      '!': not  'name' nr name   'splitch' nr    Enter: list groups
+ 'a': atom       '&': and  'del' nr         'splitres' nr   'l': list residues
+ 't': atom type  '|': or   'keep' nr        'splitat' nr    'h': help
+ 'r': residue              'res' nr         'chain' char
+ "name": group             'case': case sensitive           'q': save and quit
+ 'ri': residue index
+
+> splitat 13
+```
+
 # In case you have to use Bash instead of csh 
 ```
 #!/bin/bash
