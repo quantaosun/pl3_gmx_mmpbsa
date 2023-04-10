@@ -69,7 +69,7 @@ comm_grps               = SOLU SOLV
 Elaboration on step 3, modify README to only run 1 nano second instead of 10, so the final trajectory only named as step5_1.xtc, and all mmpbsa calculation will be on the basis of step5_1
 
 
-Elaboration on step 4. To know the index for protein and ligand, run
+##  Elaboration on step 4 (When there is no halogen atoms, for halogen contained situation, see next below). To know the index for protein and ligand, run
 
 ```
 gmx make_ndx -f step5_1.gro -o index2.ndx
