@@ -32,6 +32,9 @@ Elaboration on step 4. To know the index for protein and ligand, run
 gmx make_ndx -f step5_1.gro -o index2.ndx
 
 ```
+# In case the small molecules contains F Cl Br, it is necessary to delete the virtual site not supported by gmx_MMPBSA. 
+
+
 
 To run mmpbsa calculation with decompositon 
 
@@ -61,3 +64,5 @@ To determine how many frames in your trajectory file, use pymol
 load step5_1.gro
 load step5_1.xtc
 ```
+
+
