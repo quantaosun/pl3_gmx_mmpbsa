@@ -112,13 +112,6 @@ See details from https://valdes-tresanco-ms.github.io/gmx_MMPBSA/dev/examples/Pr
 
 1. Similar to above, generate a new index file
 ```
-_GMXMMPBSA_COM_index.ndx     _GMXMMPBSA_dummyreceptor.inpcrd   _GMXMMPBSA_LIG.inpcrd            _GMXMMPBSA_REC.pdb                  step5_10.gro                     step5_1.log
-(gmxMMPBSA2) qq@qq-ASUS-TUF-Gaming-A15-FA506QM-FA506QM:~/Desktop/3rd_review/20230409/gromacs/MMPBSA$ gmx make_ndx -f step5_1.tpr -o index2.ndx 
-               :-) GROMACS - gmx make_ndx, 2022.4-conda_forge (-:
-
-Executable:   /home/qq/anaconda3/envs/gmxMMPBSA2/bin.AVX2_256/gmx
-Data prefix:  /home/qq/anaconda3/envs/gmxMMPBSA2
-Working dir:  /home/qq/Desktop/3rd_review/20230409/gromacs/MMPBSA
 Command line:
   gmx make_ndx -f step5_1.tpr -o index2.ndx
 
@@ -181,9 +174,6 @@ Analysing residues not classified as Protein/DNA/RNA/Water and splitting into gr
  16 TIP3                : 96537 atoms
  17 UNL_O_5925          :     1 atoms
  ...................................
- 46 UNL_H8_5954         :     1 atoms
- 47 UNL_H9_5955         :     1 atoms
- 48 UNL_H10_5956        :     1 atoms
  49 UNL_H11_5957        :     1 atoms
  50 UNL_H12_5958        :     1 atoms
  51 UNL_H13_5959        :     1 atoms
@@ -314,7 +304,23 @@ Finally run
 ```
 gmx_MMPBSA -O -i mmpbsa.in -cs step5_1.tpr -ci index2.ndx -cg 1 17 -ct step5_1.xtc -cp topol.top -o FINAL_RESULTS.dat -eo FINAL_RESULTS.cs
 ```
+where mmpbsa.in is exactly the same as above (doubt check the frame number for the newly generated trajectory file though)
 
+```
+&general
+sys_name="Prot-Lig-ST",
+startframe=1,
+endframe=2,
+/
+&gb
+igb=5, saltcon=0.150,
+/
+
+&decomp
+idecomp=2, dec_verbose=3,
+print_res="within 4"
+/
+```
 
 # In case you have to use Bash instead of csh 
 ```
