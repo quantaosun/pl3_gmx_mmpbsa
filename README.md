@@ -59,7 +59,7 @@ while ( ${cnt} <= ${cntmax} )
 end
 ```
 
-An example on normal local Linux with GPU could be 
+An example on normal local Linux with GPU could be (-ntmpi added)
 
 ```
 #!/bin/csh
