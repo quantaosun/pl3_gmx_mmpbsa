@@ -16,6 +16,93 @@ Recommened workflow.
 ```
 modify REAMD for loop to only run the first 2, with step5.production.mdp nsteps extended 10 times of original value
 
+An example on normal local Linux without GPU could be 
+```
+#!/bin/csh
+
+set init = step3_input
+set mini_prefix = step4.0_minimization
+set equi_prefix = step4.1_equilibration
+set prod_prefix = step5_production
+set prod_step   = step5
+
+# Minimization
+# In the case that there is a problem during minimization using a single precision of GROMACS, please try to use 
+# a double precision of GROMACS only for the minimization step.
+gmx grompp -f ${mini_prefix}.mdp -o ${mini_prefix}.tpr -c ${init}.gro -r ${init}.gro -p topol.top -n index.ndx -maxwarn -1
+gmx mdrun -v -deffnm ${mini_prefix} 
+
+
+# Equilibration
+gmx grompp -f ${equi_prefix}.mdp -o ${equi_prefix}.tpr -c ${mini_prefix}.gro -r ${init}.gro -p topol.top -n index.ndx
+gmx mdrun -v -deffnm ${equi_prefix}
+
+
+# Production
+set cnt    = 1
+set cntmax = 2
+
+while ( ${cnt} <= ${cntmax} )
+    @ pcnt = ${cnt} - 1
+    set istep = ${prod_step}_${cnt}
+    set pstep = ${prod_step}_${pcnt}
+
+        if ( ${cnt} == 1 ) then
+        set pstep = ${equi_prefix}
+        gmx grompp -f ${prod_prefix}.mdp -o ${istep}.tpr -c ${pstep}.gro -p topol.top -n index.ndx
+        else
+        gmx grompp -f ${prod_prefix}.mdp -o ${istep}.tpr -c ${pstep}.gro -t ${pstep}.cpt -p topol.top -n index.ndx
+        endif
+        gmx mdrun -v -deffnm ${istep}
+        @ cnt += 1
+end
+```
+
+An example on normal local Linux with GPU could be 
+
+```
+#!/bin/csh
+
+set init = step3_input
+set mini_prefix = step4.0_minimization
+set equi_prefix = step4.1_equilibration
+set prod_prefix = step5_production
+set prod_step   = step5
+
+# Minimization
+# In the case that there is a problem during minimization using a single precision of GROMACS, please try to use 
+# a double precision of GROMACS only for the minimization step.
+gmx grompp -f ${mini_prefix}.mdp -o ${mini_prefix}.tpr -c ${init}.gro -r ${init}.gro -p topol.top -n index.ndx -maxwarn -1
+gmx mdrun -v -deffnm ${mini_prefix} -ntmpi 1
+
+
+# Equilibration
+gmx grompp -f ${equi_prefix}.mdp -o ${equi_prefix}.tpr -c ${mini_prefix}.gro -r ${init}.gro -p topol.top -n index.ndx
+gmx mdrun -v -deffnm ${equi_prefix} -ntmpi 1
+
+
+# Production
+set cnt    = 1
+set cntmax = 2
+
+while ( ${cnt} <= ${cntmax} )
+    @ pcnt = ${cnt} - 1
+    set istep = ${prod_step}_${cnt}
+    set pstep = ${prod_step}_${pcnt}
+
+        if ( ${cnt} == 1 ) then
+        set pstep = ${equi_prefix}
+        gmx grompp -f ${prod_prefix}.mdp -o ${istep}.tpr -c ${pstep}.gro -p topol.top -n index.ndx
+        else
+        gmx grompp -f ${prod_prefix}.mdp -o ${istep}.tpr -c ${pstep}.gro -t ${pstep}.cpt -p topol.top -n index.ndx
+        endif
+        gmx mdrun -v -deffnm ${istep} -ntmpi 1
+        @ cnt += 1
+end
+
+```
+
+######
 ```
 mdp file after 10 time logner than default (nsteps has been modified with one more 0)
 
