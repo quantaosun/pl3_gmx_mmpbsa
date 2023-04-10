@@ -1,12 +1,5 @@
 # pl3_gmx_mmpbsa
 
-## Halogen-contained small molecule needs special address
-
-An example of the final result of such a calculation (per-residue decomposition of binding free energy)
-
-![image](https://user-images.githubusercontent.com/75652473/230804988-ecd647c8-a10b-4140-9c63-fde93d2b6045.png)
-
-
 [![Use on Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/quantaosun/pl3_gmx_mmpbsa/HEAD)
 
 Recommened workflow.
@@ -466,3 +459,9 @@ idecomp=2, dec_verbose=3,
 print_res="within 4"
 /
 ```
+
+## Halogen-contained small molecule needs special address
+
+An example of the final result of such a calculation (per-residue decomposition of binding free energy)
+
+![image](https://user-images.githubusercontent.com/75652473/230804988-ecd647c8-a10b-4140-9c63-fde93d2b6045.png)
