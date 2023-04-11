@@ -243,6 +243,7 @@ load step5_1.gro
 load step5_1.xtc
 ```
 # In case the small molecules contains F Cl Br, it is necessary to delete the virtual site not supported by gmx_MMPBSA. 
+# There is a much easier work around of halogen atom issue, whcih is just using OpenFF instead of Charmm, all the below discussion is only necessary if you used Charmm for the small molecule.
 
 See details from https://valdes-tresanco-ms.github.io/gmx_MMPBSA/dev/examples/Protein_ligand_LPH_atoms_CHARMMff/, note the modification of topol.top is extremely easy to go wrong, be careful.
 
