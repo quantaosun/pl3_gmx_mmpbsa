@@ -214,6 +214,8 @@ gmx make_ndx -f step5_1.gro -o index2.ndx
 
 ```
 
+1 | 13
+
 
 
 To run mmpbsa calculation with decompositon 
