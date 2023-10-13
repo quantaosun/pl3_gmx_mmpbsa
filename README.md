@@ -119,12 +119,12 @@ prod_step="step5"
 # Minimization
 # In the case that there is a problem during minimization using a single precision of GROMACS, please try to use 
 # a double precision of GROMACS only for the minimization step.
-#gmx grompp -f "${mini_prefix}.mdp" -o "${mini_prefix}.tpr" -c "${init}.gro" -r "${init}.gro" -p topol.top -n index.ndx -maxwarn -1
+#gmx grompp -f "${mini_prefix}.mdp" -o "${mini_prefix}.tpr" -c "${init}.gro" -r "${init}.gro" -p topol.top -n index.ndx -maxwarn -7
 #gmx mdrun -v -deffnm "${mini_prefix}" -ntmpi 1
 
 
 # Equilibration
-#gmx grompp -f "${equi_prefix}.mdp" -o "${equi_prefix}.tpr" -c "${mini_prefix}.gro" -r "${init}.gro" -p topol.top -n index.ndx
+#gmx grompp -f "${equi_prefix}.mdp" -o "${equi_prefix}.tpr" -c "${mini_prefix}.gro" -r "${init}.gro" -p topol.top -n index.ndx -maxwarn -7
 #gmx mdrun -v -deffnm "${equi_prefix}" -ntmpi 1
 
 
@@ -141,9 +141,9 @@ do
     if [ $cnt -eq 1 ]
     then
         pstep="${equi_prefix}"
-        gmx grompp -f "${prod_prefix}.mdp" -o "${istep}.tpr" -c "${pstep}.gro" -p topol.top -n index.ndx
+        gmx grompp -f "${prod_prefix}.mdp" -o "${istep}.tpr" -c "${pstep}.gro" -p topol.top -n index.ndx -maxwarn -7
     else
-        gmx grompp -f "${prod_prefix}.mdp" -o "${istep}.tpr" -c "${pstep}.gro" -t "${pstep}.cpt" -p topol.top -n index.ndx
+        gmx grompp -f "${prod_prefix}.mdp" -o "${istep}.tpr" -c "${pstep}.gro" -t "${pstep}.cpt" -p topol.top -n index.ndx -maxwarn -7
     fi
 
     gmx mdrun -v -deffnm "${istep}" -ntmpi 1
