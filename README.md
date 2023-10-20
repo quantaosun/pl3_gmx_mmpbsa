@@ -1,7 +1,14 @@
 # pl3_gmx_mmpbsa
 
-## Update/ Please use the binder only for input generation, to run the simulation please use a third-party OpenMM platform. This is kept here for my convenience but may be not so consistent to this repo. The simulation package is designed for OpenMM, then MMPBSA with Amber.
+## Update/ Please use the binder only for input generation, to run the simulation please use a third-party OpenMM platform. This is kept here for my convenience but may be not so consistent to this repo. The simulation package is designed for OpenMM.
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/quantaosun/pl3_gmx_mmpbsa/HEAD)
+
+```
+conda create -n openmm-env python=3.7
+conda activate openmm-env
+conda install -c omnia openmm-setup
+
+```
 
 ##################################################################
 Recommened workflow.
