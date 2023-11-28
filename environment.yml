@@ -6,7 +6,7 @@ dependencies:
   - py3dmol=2.0.4=pyhd8ed1ab_0 
   - mdanalysis=2.6.1=py310hf4b3c1f_0 
   - prolif=2.0.1=pyhd8ed1ab_0 
-  - _libgcc_mutex=0.1=conda_forge
+  #- _libgcc_mutex=0.1=conda_forge
   - _openmp_mutex=4.5=2_gnu
   - ambertools=22.5=py310hd182041_0
   #- annotated-types=0.6.0=pyhd8ed1ab_0
@@ -176,15 +176,15 @@ dependencies:
   #- ocl-icd=2.3.1=h7f98852_0
   #- ocl-icd-system=1.0.0=1
   - openbabel=3.1.1=py310h956b46e_8
-  - openff-amber-ff-ports=0.0.3=pyh6c4a22f_0
-  - openff-forcefields=2023.08.0=pyh1a96a4e_0
-  - openff-interchange=0.3.16=pyhd8ed1ab_0
-  - openff-interchange-base=0.3.16=pyhd8ed1ab_0
-  - openff-models=0.1.0=pyh1a96a4e_1
-  - openff-toolkit=0.14.4=pyhd8ed1ab_0
-  - openff-toolkit-base=0.14.4=pyhd8ed1ab_0
-  - openff-units=0.2.1=pyh1a96a4e_0
-  - openff-utilities=0.1.10=pyhd8ed1ab_0
+  #- openff-amber-ff-ports=0.0.3=pyh6c4a22f_0
+  #- openff-forcefields=2023.08.0=pyh1a96a4e_0
+  #- openff-interchange=0.3.16=pyhd8ed1ab_0
+  #- openff-interchange-base=0.3.16=pyhd8ed1ab_0
+  #- openff-models=0.1.0=pyh1a96a4e_1
+  #- openff-toolkit=0.14.4=pyhd8ed1ab_0
+  #- openff-toolkit-base=0.14.4=pyhd8ed1ab_0
+  #- openff-units=0.2.1=pyh1a96a4e_0
+  #- openff-utilities=0.1.10=pyhd8ed1ab_0
   #- openjpeg=2.5.0=hfec8fc6_2
   - openmm=8.0.0=py310h4812340_3
   - openmmforcefields=0.12.0=pyhd8ed1ab_0
