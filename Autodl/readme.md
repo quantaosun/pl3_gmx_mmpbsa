@@ -28,3 +28,9 @@ https://plip-tool.biotec.tu-dresden.de/plip-web/plip/index
 """ idecomp=2, dec_verbose=3, """ + "\n"
 """ print_res="84, 87, 91, 99, 111, 118, 165" """ + "\n"
 ```
+You also need to modify the 
+
+```
+amberhome = "source /root/miniconda3/envs/pl3_mmpbsa/amber.sh"
+```
+to the previously created new env path.
