@@ -1,4 +1,4 @@
-name: base
+name: pl3_md_and_gmx_mmpbda
 channels:
   - conda-forge
 dependencies:
@@ -309,4 +309,4 @@ dependencies:
   #- zstandard=0.19.0=py310hdeb6495_1
   #- zstd=1.5.2=h3eb15da_6
 
-prefix: /usr/local
+#prefix: /usr/local
